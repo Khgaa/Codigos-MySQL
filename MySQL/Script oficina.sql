@@ -10,6 +10,8 @@ create table empresa(
     
     );
     
+create index idx_idempresa_id on Empresa(idEmpresa);
+    
 create table departamento(
  
   idDepartamento int NOT NULL auto_increment primary key,
@@ -20,6 +22,8 @@ create table departamento(
   references Empresa(idEmpresa)
   
   );
+  
+create index idx_iddepartamento_id on Departamento(idDepartamento);
   
 create table endereco(
 
@@ -32,6 +36,8 @@ create table endereco(
   
   );
   
+create index idx_idendereco_id on Endereco(idEndereco);
+  
 create table cliente(
    
    idCliente int NOT NULL auto_increment primary key,
@@ -42,6 +48,8 @@ create table cliente(
    references Endereco(idEndereco)
    
    );
+   
+create index idx_idCliente_id on Cliente(idCliente);
    
 create table funcionario(
    
@@ -56,6 +64,8 @@ create table funcionario(
    references Endereco(idEndereco)
    
    );
+   
+create index idx_idfuncionario_id on Funcionario(idFuncionario);
   
 create table telefone(
 
@@ -69,6 +79,8 @@ create table telefone(
   constraint fk_idCliente_Telefone foreign key(idCliente)
   references Cliente(idCliente)
   );
+  
+create index idx_idtelefone_id on Telefone(idTelefone);
    
   
 create table OS(
@@ -90,6 +102,8 @@ create table OS(
   
   );
   
+create index idx_idOS_id on OS(idOS);
+  
 create table servico(
    
    idServico int NOT NULL auto_increment primary key,
@@ -97,6 +111,8 @@ create table servico(
    recursos varchar(200) NOT NULL
    
    );
+   
+create index idx_idServico_id on Servico(idServico);
    
 create table itens_OS(
 
@@ -110,4 +126,7 @@ create table itens_OS(
     primary key(idOS, idServico)
     
     );
+    
+create index idx_idOS_id on Itens_OS(idOS);
+create index idx_idservico_id on Itens_OS(idServico);
   
