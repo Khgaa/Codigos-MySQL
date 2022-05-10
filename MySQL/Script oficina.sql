@@ -1,3 +1,4 @@
+create database oficina;
 
 USE oficina;
 
