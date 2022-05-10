@@ -1,6 +1,6 @@
-create database escola;
+create database sala;
 
-USE escola;
+USE sala;
 
 create table Turma(
         id_Turma int NOT NULL auto_increment,
