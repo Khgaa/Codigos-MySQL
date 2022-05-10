@@ -106,7 +106,8 @@ create table itens_OS(
     constraint fk_idOS_itens foreign key(idOS)
     references OS(idOS),
     constraint fk_idServico_itens foreign key(idServico)
-    references Servico(idServico)
+    references Servico(idServico),
+    primary key(idOS, idServico)
     
     );
   
