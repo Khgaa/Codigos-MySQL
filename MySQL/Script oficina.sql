@@ -32,45 +32,44 @@ create table endereco(
   
   );
   
-create table telefone(
-
-  idTelefone int NOT NULL auto_increment primary key,
-  operadora varchar(50) NOT NULL,
-  numero varchar(13) NOT NULL
-  
-  );
-
-  
-create table funcionario(
-   
-   idFuncionario int NOT NULL auto_increment primary key,
-   nomeFuncionario varchar(120) NOT NULL,
-   cpfFuncionario varchar(11) NOT NULL,
-   idEndereco int NOT NULL,
-   idTelefone int NOT NULL,
-   idDepartamento int NOT NULL,
-   constraint fk_idDepartamento_funcionario foreign key(idDepartamento)
-   references Departamento(idDepartamento),
-   constraint fk_idEndereco_funcionario foreign key(idEndereco)
-   references Endereco(idEndereco),
-   constraint fk_idTelefone_funcionario foreign key(idTelefone)
-   references Telefone(idTelefone)
-   
-   );
-   
 create table cliente(
    
    idCliente int NOT NULL auto_increment primary key,
    nomeCliente varchar(120) NOT NULL,
    cpfCliente varchar(11) NOT NULL,
    idEndereco int NOT NULL,
-   idTelefone int NOT NULL,
    constraint fk_idEndereco_cliente foreign key(idEndereco)
-   references Endereco(idEndereco),
-   constraint fk_idTelefone_cliente foreign key(idTelefone)
-   references Telefone(idTelefone)
+   references Endereco(idEndereco)
    
    );
+   
+create table funcionario(
+   
+   idFuncionario int NOT NULL auto_increment primary key,
+   nomeFuncionario varchar(120) NOT NULL,
+   cpfFuncionario varchar(11) NOT NULL,
+   idEndereco int NOT NULL,
+   idDepartamento int NOT NULL,
+   constraint fk_idDepartamento_funcionario foreign key(idDepartamento)
+   references Departamento(idDepartamento),
+   constraint fk_idEndereco_funcionario foreign key(idEndereco)
+   references Endereco(idEndereco)
+   
+   );
+  
+create table telefone(
+
+  idTelefone int NOT NULL auto_increment primary key,
+  operadora varchar(50) NOT NULL,
+  numero varchar(13) NOT NULL,
+  idFuncionario int,
+  idCliente int,
+  constraint fk_idFuncionario_Telefone foreign key(idFuncionario)
+  references Funcionario(idFuncionario),
+  constraint fk_idCliente_Telefone foreign key(idCliente)
+  references Cliente(idCliente)
+  );
+   
   
 create table OS(
    
@@ -98,4 +97,16 @@ create table servico(
    recursos varchar(200) NOT NULL
    
    );
+   
+create table itens_OS(
+
+
+    idOS int NOT NULL,
+    idServico int NOT NULL,
+    constraint fk_idOS_itens foreign key(idOS)
+    references OS(idOS),
+    constraint fk_idServico_itens foreign key(idServico)
+    references Servico(idServico)
+    
+    );
   
