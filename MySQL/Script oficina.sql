@@ -162,29 +162,29 @@ VALUES
   
 INSERT INTO Endereco (pais,estado,cidade,bairro,rua)
 VALUES
-  ("Praesent","orci. Phasellus dapibus quam quis","tincidunt tempus risus. Donec egestas. Duis ac arcu. Nunc mauris.","ipsum","dui, nec tempus mauris"),
-  ("eros turpis non enim. Mauris quis turpis vitae purus gravida","diam at pretium aliquet,","varius orci, in consequat enim diam vel arcu. Curabitur","nibh. Donec","consectetuer rhoncus. Nullam"),
-  ("rhoncus. Nullam velit dui, semper et,","lorem. Donec elementum, lorem ut aliquam iaculis, lacus","dolor elit, pellentesque a, facilisis non, bibendum","arcu. Sed eu nibh vulputate mauris","fermentum metus. Aenean sed"),
-  ("Fusce fermentum fermentum arcu. Vestibulum","erat volutpat. Nulla dignissim. Maecenas","habitant morbi tristique senectus","Quisque nonummy ipsum non arcu.","Cras interdum."),
-  ("libero mauris, aliquam eu, accumsan sed, facilisis vitae,","Curabitur ut odio vel est","semper rutrum. Fusce dolor quam, elementum at,","fames","tristique senectus et netus et malesuada fames ac turpis"),
-  ("quam. Pellentesque habitant morbi tristique senectus et","commodo auctor velit. Aliquam","laoreet posuere,","id ante dictum cursus. Nunc mauris elit,","enim. Curabitur massa. Vestibulum accumsan neque"),
-  ("et pede. Nunc sed orci lobortis augue scelerisque mollis.","non magna. Nam","Duis a mi fringilla mi lacinia mattis.","nec, cursus a,","dis parturient montes, nascetur ridiculus"),
-  ("augue eu tellus. Phasellus","in aliquet lobortis, nisi","habitant morbi tristique","Suspendisse aliquet,","ultrices posuere"),
-  ("est mauris, rhoncus id, mollis nec,","tortor nibh sit amet orci. Ut sagittis lobortis","condimentum. Donec at arcu. Vestibulum ante ipsum primis","at auctor ullamcorper, nisl","mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla,"),
-  ("sit amet,","mattis velit justo nec ante.","mollis non, cursus non, egestas a, dui. Cras pellentesque.","ut cursus luctus, ipsum leo elementum sem, vitae","egestas, urna justo faucibus lectus, a sollicitudin orci sem");
+  ("Brazil","Minas Gerais","Montes Claros","Centro","743-5961 Ac St."),
+  ("Brazil","Pernambuco","Jaboatão dos Guararapes","Centro","670-4124 Est. Ave"),
+  ("Brazil","Minas Gerais","Ipatinga","Centro","409-9804 Diam Ave"),
+  ("Brazil","Maranhão","Timon","Centro","Ap #537-1597 Habitant Avenue"),
+  ("Brazil","Paraíba","Campina Grande","Centro","837 Tempor Ave");
+
   
   INSERT INTO Funcionario (nomeFuncionario,cpfFuncionario,idEndereco,idDepartamento)
 VALUES
-  ("eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum",49639549749,1,1),
-  ("diam. Proin dolor. Nulla semper tellus",27312017297,1,1),
-  ("elit, dictum eu, eleifend",59586905135,1,1),
-  ("metus sit amet ante. Vivamus non lorem vitae odio",54497665593,1,1),
-  ("neque sed sem egestas blandit. Nam nulla",62061330118,1,1),
-  ("eleifend vitae, erat. Vivamus nisi. Mauris",96670688598,1,1),
-  ("nec, malesuada ut, sem. Nulla interdum. Curabitur dictum. Phasellus",82816986489,1,1),
-  ("dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer",31272995859,1,1),
-  ("Ut tincidunt vehicula risus. Nulla",51091731687,1,1),
-  ("tempus",94523641392,1,1);
+  ("Rae Holmes",50223861907,1,1),
+  ("Claudia Anthony",75823468874,1,1),
+  ("Logan Lambert",39355260635,1,1),
+  ("Jordan Franklin",99105162316,1,1),
+  ("Madeson Valdez",70121329041,1,1);
+  
+  INSERT INTO Cliente (nomeCliente,cpfCliente,idEndereco)
+VALUES
+  ("Jennifer Bradford",34491918214,1),
+  ("Karen Bernard",88718190327,1),
+  ("Dieter Holt",44946181246,1),
+  ("Whoopi Mcleod",59199868549,1),
+  ("Aristotle Rich",16334356846,1);
+
   
                                    -- SELECTS --
   
