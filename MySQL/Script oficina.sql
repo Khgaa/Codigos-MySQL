@@ -1,5 +1,3 @@
-create database oficina;
-
 USE oficina;
 
 create table empresa(
@@ -10,7 +8,6 @@ create table empresa(
     
     );
     
-create index idx_idempresa_id on Empresa(idEmpresa);
     
 create table departamento(
  
@@ -23,7 +20,6 @@ create table departamento(
   
   );
   
-create index idx_iddepartamento_id on Departamento(idDepartamento);
   
 create table endereco(
 
@@ -36,7 +32,6 @@ create table endereco(
   
   );
   
-create index idx_idendereco_id on Endereco(idEndereco);
   
 create table cliente(
    
@@ -49,7 +44,6 @@ create table cliente(
    
    );
    
-create index idx_idCliente_id on Cliente(idCliente);
    
 create table funcionario(
    
@@ -65,7 +59,6 @@ create table funcionario(
    
    );
    
-create index idx_idfuncionario_id on Funcionario(idFuncionario);
   
 create table telefone(
 
@@ -80,7 +73,6 @@ create table telefone(
   references Cliente(idCliente)
   );
   
-create index idx_idtelefone_id on Telefone(idTelefone);
    
   
 create table OS(
@@ -102,7 +94,6 @@ create table OS(
   
   );
   
-create index idx_idOS_id on OS(idOS);
   
 create table servico(
    
@@ -112,7 +103,6 @@ create table servico(
    
    );
    
-create index idx_idServico_id on Servico(idServico);
    
 create table itens_OS(
 
@@ -127,9 +117,20 @@ create table itens_OS(
     
     );
     
+
+
+							       -- INDEXES --
+
+create index idx_idempresa_id on Empresa(idEmpresa);
+create index idx_iddepartamento_id on Departamento(idDepartamento);
+create index idx_idendereco_id on Endereco(idEndereco);
+create index idx_idCliente_id on Cliente(idCliente);
+create index idx_idfuncionario_id on Funcionario(idFuncionario);
+create index idx_idtelefone_id on Telefone(idTelefone);
+create index idx_idOS_id on OS(idOS);
+create index idx_idServico_id on Servico(idServico);
 create index idx_idOS_id on Itens_OS(idOS);
 create index idx_idservico_id on Itens_OS(idServico);
-
 
 									-- VALUES --
 
