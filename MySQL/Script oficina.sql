@@ -1,3 +1,4 @@
+CREATE database oficina;
 USE oficina;
 
 create table empresa(
@@ -211,3 +212,10 @@ drop table Cliente;
 drop table Servico;
 drop table Itens_OS;
 drop table OS;                                
+
+                                     -- JOIN --
+
+select s.nomeServico, d.nomeDepartamento, o.resposta from Servico s inner join Itens_OS i on (i.idServico = s.idServico) inner join OS o on (o.idOS = i.idOS) inner join departamento d on (d.idDepartamento = o.idDepartamento) and d.idDepartamento = 1;
+select s.nomeServico, f.nomeFuncionario from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Funcionario f ON (f.idFuncionario = o.idFuncionario);  
+select s.nomeServico, c.nomeCliente from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Cliente c ON (c.idCliente = o.idCliente);  
+ 
