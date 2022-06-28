@@ -219,3 +219,18 @@ select s.nomeServico, d.nomeDepartamento, o.resposta from Servico s inner join I
 select s.nomeServico, f.nomeFuncionario from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Funcionario f ON (f.idFuncionario = o.idFuncionario);  
 select s.nomeServico, c.nomeCliente from Servico s INNER JOIN ITENS_OS i ON (i.idServico = s.idServico) INNER JOIN OS o ON (o.idOS = i.idOS) INNER JOIN Cliente c ON (c.idCliente = o.idCliente);  
  
+                                       -- FUNÇÕES --
+                                       
+SELECT
+  count(numero)
+FROM
+  telefone
+WHERE
+  idCliente = 1 ;  
+  
+SELECT
+  count(numero)
+FROM
+  telefone
+GROUP BY
+  idCliente = 1   
