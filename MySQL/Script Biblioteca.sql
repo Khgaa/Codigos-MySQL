@@ -2,6 +2,8 @@ create database biblioteca;
 
 USE biblioteca;
 
+									        	-- TABLES --
+
 create table bibliotecario(
 
    idBibliotecario int NOT NULL auto_increment primary key,
@@ -123,7 +125,7 @@ create table obra(
    
    );
    
-                           -- INDEXES --
+                                                  -- INDEXES --
    
 create index idx_idBibliotecario_id on Bibliotecario(idBibliotecario);
 create index idx_idUsuario_id on Usuario(idUsuario);
@@ -137,7 +139,7 @@ create index idx_idReserva_id on Reserva(idReserva);
 create index idx_idAutor_id on Obra(idAutor);
 create index idx_idExemplar_id on Obra(idExemplar);
                             
-                            -- VALUES --
+                                              -- VALUES --
                             
 INSERT INTO Bibliotecario (nomeBibliotecario,cpfBibliotecario,emailBibliotecario,login,senha)
 VALUES
@@ -224,7 +226,7 @@ VALUES
   (4,4),
   (5,5);
   
-                                 -- SELECTS --
+												-- SELECTS --
                                  
 select * from Bibliotecario;
 select * from Endereco;
@@ -237,7 +239,56 @@ select * from Autor;
 select * from Obra;
 select * from Locacao;
 
-                                   -- DROPS --
+											   -- SUBQUERYS --
+                                                 
+select A.nomeAutor, (select count(O.IdAutor) from obra O where O.IdAutor = A.IdAutor) as Quantidade_Obra from Autor A group by A.IdAutor;
+
+select * from Autor A where A.IdAutor not in (select O.IdAutor from obra O);
+
+select T.nomeAutor, T.Quantidade_Obra from (select A.nomeAutor, (select count(O.IdAutor) from obra O where O.IdAutor = A.IdAutor) as Quantidade_Obra from Autor A group by A.IdAutor) T where T.Quantidade_Obra < 2;
+
+											   -- PROCEDURES --
+                                               
+DELIMITER $$
+
+CREATE PROCEDURE LISTAR_AUTORES()
+BEGIN
+
+	SELECT * FROM AUTOR;
+    
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ANALISE_OBRAS(OUT NOME VARCHAR(120), OUT MAX_OBRA DOUBLE, IN IDAUTOR INT)
+BEGIN 
+
+	SELECT NOMEAUTOR INTO NOME FROM AUTOR WHERE IDAUTOR = IDAUTOR;
+    
+    SELECT MAX(O.OBRA) INTO MAX_OBRA FROM OBRA O WHERE O.IDAUTOR = IDAUTOR;
+    
+    
+
+
+END$$
+
+
+DELIMITER ;
+
+SET @NOME = "";
+SET @MAX_OBRA = 0;
+
+												 -- CALLS --
+                                                 
+CALL LISTAR_AUTORES;
+
+CALL ANALISE_OBRAS(@NOME, @MAX_OBRA, 2);
+SELECT @NOME, @MAX_OBRA;
+SELECT * FROM OBRA;
+
+                                                 -- DROPS --
                                    
 drop table Bibliotecario;
 drop table Endereco;
@@ -249,3 +300,5 @@ drop table Reserva;
 drop table Autor;
 drop table Obra;
 drop table Locacao;
+drop procedure listar_autores;
+drop procedure analise_obras;
